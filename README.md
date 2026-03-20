@@ -1,144 +1,100 @@
-# Clustering des Marchés et Commerces du Sénégal
+# Regroupement des marchés et des commerces au Sénégal
 
-Projet personnel réalisé en parallèle de ma formation GLSI à l'ESP de Dakar
+J'ai réalisé ce projet de mon côté pendant que je faisais ma formation GLSI à l'ESP de Dakar.
 
-L'idée de départ était simple : est-ce qu'on peut regrouper automatiquement des commerces sénégalais selon leurs caractéristiques, sans étiquettes préalables ? C'est ce qu'on appelle le **clustering non supervisé**, et j'ai choisi l'algorithme **K-Means** pour le mettre en pratique.
+Au début, on s'est juste demandé si on pouvait rassembler des commerces sénégalais automatiquement d'après ce qu'ils sont, sans les avoir classés avant. C'est ce qu'on appelle du clustering non supervisé, et j'ai choisi l'algorithme K-Means pour le faire.
 
----
+## Pourquoi parler de ça ?
 
-## Pourquoi ce sujet ?
+> « Je voulais bosser sur un truc bien concret, qui se passe ici, chez nous. »
 
-Je voulais travailler sur quelque chose d'ancré dans la réalité locale. Les marchés comme Sandaga, Tilène, HLM ou Colobane regroupent des centaines de commerces très différents — du petit vendeur ambulant à l'importateur en gros. L'idée était de voir si un algorithme pouvait retrouver ces différences de façon autonome, à partir de quelques variables économiques.
+Les marchés comme Sandaga, Tilène, HLM ou Colobane, c'est vraiment un gros mélange. On y trouve de tout. Il y a le petit vendeur qui se balade avec ses choses et puis les gros gars qui importent des tonnes de marchandises. C'est ça qui est intéressant.
 
-Les données sont synthétiques (générées par script), mais elles essaient de coller aux réalités du commerce informel sénégalais : revenus en FCFA, marchés réels, types de boutiques courants, etc.
+L'idée, c'était de vérifier si un algorithme pouvait, tout seul, repérer ces différences en se basant juste sur quelques données économiques.
 
----
+Les données qu'on utilise sont créées par des programmes, mais elles sont faites pour ressembler le plus possible à ce qui se passe vraiment dans le commerce informel au Sénégal. Par exemple, les revenus sont en FCFA, on parle de vrais marchés et des types de boutiques qu'on trouve souvent là-bas.
 
-## Ce que le projet fait concrètement
+## Ce que fait ce projet
 
-En lançant `main.py`, le programme fait:
+En lançant `main.py`, le programme fait :
 
-1. Génère un dataset de 500 commerces fictifs mais réalistes
-2. Fait une exploration rapide des données (distributions, corrélations)
-3. Standardise les variables avant d'appliquer K-Means
-4. Cherche le bon nombre de clusters via la méthode du coude
-5. Entraîne le modèle et affecte chaque commerce à un groupe
-6. Produit plusieurs graphiques pour visualiser les résultats
+1. Crée un ensemble de données avec 500 commerces inventés, mais qui semblent réels.
+2. Jette un coup d'œil rapide aux données pour voir comment elles se répartissent et si elles sont liées entre elles.
+3. Avant d'utiliser K-Means, il faut harmoniser les variables.
+4. On cherche le bon nombre de groupes en utilisant la méthode du coude.
 
-Les graphiques s'ouvrent les uns après les autres — il faut fermer chaque fenêtre pour passer au suivant. Ils sont aussi sauvegardés dans le dossier `graphiques/`.
+Ensuite, on fait passer le modèle sur les données pour attribuer chaque magasin à un groupe.
 
----
+Il fait plusieurs graphiques pour voir les résultats. Les graphiques s'affichent un par un, il faut fermer chaque fenêtre avant de pouvoir voir le suivant. Ils sont aussi enregistrés dans le dossier `graphiques`.
 
-## Les 4 groupes trouvés
+## Les 4 groupes qu'on a trouvés
 
-Après analyse, K=4 s'est révélé être le meilleur choix :
+Après réflexion, K=4 nous a semblé être l'option la plus judicieuse.
 
-| Groupe | Nombre de commerces | CA moyen (FCFA) | Surface | Employés | Clients/jour |
-|--------|---------------------|-----------------|---------|----------|--------------|
+| Groupe | Nombre de magasins | Chiffre d'affaires moyen (FCFA) | Surface | Employés | Clients par jour |
+|---|---|---|---|---|---|
 | Petits vendeurs | ~150 | 150 000 | 5 m² | 1 | 20 |
-| Boutiques de quartier | ~175 | 400 000 | 15 m² | 2 | 50 |
-| Commerces moyens | ~100 | 900 000 | 40 m² | 5 | 100 |
+| Commerces de quartier | ~175 | 400 000 | 15 m² | 2 | 50 |
+| Commerces de taille moyenne | ~100 | 900 000 | 40 m² | 5 | 100 |
 | Grands commerçants | ~75 | 2 500 000 | 90 m² | 12 | 200 |
 
-Ces segments correspondent bien à ce qu'on observe dans la réalité, ce qui m'a semblé être un bon signe de cohérence.
+Ces parties collent bien à ce qu'on voit en vrai, et pour moi, c'est un bon signe que tout tient la route.
 
----
-
-## Organisation des fichiers
+## Comment bien organiser ses fichiers
 ```
 clustering-marches-senegal/
-│
-├── config.py           # Paramètres du projet (K, seed, variables)
-├── generate_data.py    # Génération du dataset
-├── preprocessing.py    # Standardisation avec StandardScaler
-├── model_kmeans.py     # Méthode du coude + K-Means
-├── eda.py              # Analyse exploratoire
-├── visualisation.py    # Graphiques des clusters
-├── main.py             # Point d'entrée — tout se lance depuis là
-├── requirements.txt    # Bibliothèques nécessaires
+├── config.py              # Voici les paramètres de notre projet : K, la valeur de départ, et les variables.
+├── générer_données.py     # Génération du dataset
+├── traitement_données.py  # Standardisation avec StandardScaler
+├── modèle_kmeans.py       # Méthode du coude + K-Means
+├── exploration_données.py # Découverte de données
+├── visualisation.py       # Graphiques de clusters
+├── main.py                # C'est le point de départ de tout, c'est de là que tout commence
+├── requirements.txt       # Bibliothèques essentielles
 └── README.md
 ```
 
----
-
 ## Installation
 
-### 1. Cloner le dépôt
+### 1. Copier le dépôt
 ```bash
 git clone https://github.com/bassirou-ousmane-ba/clustering-marches-senegal.git
 cd clustering-marches-senegal
 ```
 
-### 2. Créer un environnement virtuel
+### 2. Fabriquer un espace virtuel
 ```bash
 python -m venv venv
+```
 
-# Windows :
+Windows :
+```bash
 venv\Scripts\activate
+```
 
-# Mac/Linux :
+Mac ou Linux :
+```bash
 source venv/bin/activate
 ```
 
-### 3. Installer les dépendances
+### 3. Installer les éléments nécessaires
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Lancer
+### 4. Mettre en marche
 ```bash
 python main.py
 ```
 
 ---
 
-## Quelques notes sur l'algorithme
+## Quelques mots sur comment l'algorithme fonctionne
 
-K-Means fonctionne en plaçant des centres au hasard, en assignant chaque point au centre le plus proche, puis en recalculant ces centres — et ainsi de suite jusqu'à stabilisation. C'est un algorithme simple mais efficace pour ce type de segmentation.
+En gros, le K-Means commence par mettre des points un peu n'importe où. Après, il regarde chaque donnée et l'attribue au point le plus près. Ensuite, il recalcule la position de ces points, et ça continue comme ça jusqu'à ce que tout soit stable.
 
-Pour choisir K, j'ai utilisé la **méthode du coude** : on trace l'inertie en fonction de K, et on cherche le point où la courbe "s'aplatit". Ici, le coude apparaît clairement à K=4.
+C'est un algorithme simple mais qui marche bien pour ce genre de découpage.
 
-Pour évaluer la qualité du clustering, j'ai aussi calculé le **score silhouette**. Plus il est proche de 1, mieux les clusters sont séparés.
+Pour choisir K, j'ai pris la méthode du coude : j'ai tracé l'inertie par rapport à K, et j'ai repéré l'endroit où la courbe devient plus plate.
 
----
-
-## Graphiques générés
-
-| Fichier | Contenu |
-|---------|---------|
-| `coude.png` | Courbe d'inertie — choix de K |
-| `distributions.png` | Histogrammes des variables |
-| `correlation.png` | Carte de corrélation |
-| `boxplots.png` | Boxplots par type de commerce |
-| `scatter_clusters.png` | Nuage de points coloré par cluster |
-| `profils_clusters.png` | Profil moyen de chaque segment |
-| `repartition.png` | Répartition en camembert |
-| `boxplot_clusters.png` | Comparaison des clusters sur les variables clés |
-
----
-
-## Bibliothèques utilisées
-
-- `pandas` / `numpy` — manipulation des données
-- `scikit-learn` — K-Means, StandardScaler, silhouette score
-- `matplotlib` / `seaborn` — visualisations
-
----
-
-## Désactiver l'environnement virtuel
-```bash
-deactivate
-```
-
----
-
-## Licence
-
-MIT
-
----
-Bassirou ousmane ba etudiant en licence 2 genie logiciel et Systeme d information a l'esp
-
-## Auteur
-
-**Bassirou Ousmane Ba** — Licence 2 Data Science / Machine Learning
+Ici, tu peux bien voir le coude quand K est à 4.
