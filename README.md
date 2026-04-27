@@ -2,17 +2,17 @@
 
 J'ai réalisé ce projet de mon côté pendant que je faisais ma formation GLSI à l'ESP de Dakar.
 
-Au début, on s'est juste demandé si on pouvait rassembler des commerces sénégalais automatiquement d'après ce qu'ils sont, sans les avoir classés avant. C'est ce qu'on appelle du clustering non supervisé, et j'ai choisi l'algorithme K-Means pour le faire.
+Au début, je mE suis pose une simple interrogation et si on pouvait rassembler des commerces sénégalais automatiquement d'après ce qu'ils sont, sans  les avoir classés avant. C'est ce qu'on appelle du clustering non supervisé, et j'ai choisi l'algorithme K-Means pour le faire.
 
 ## Pourquoi parler de ça ?
 
-> « Je voulais bosser sur un truc bien concret, qui se passe ici, chez nous. »
+> « Je voulais travailler  sur un truc bien concret, qui touche reellement le pays. »
 
-Les marchés comme Sandaga, Tilène, HLM ou Colobane, c'est vraiment un gros mélange. On y trouve de tout. Il y a le petit vendeur qui se balade avec ses choses et puis les gros gars qui importent des tonnes de marchandises. C'est ça qui est intéressant.
+Les marchés comme Sandaga, Tilène, HLM ou Colobane, represente le coeur du commerce au senegal. On y trouve de tout. Il y a le petit vendeur qui se balade avec ses choses et puis les grosses compagnies qui importent des tonnes de marchandises. C'est ça qui est intéressant.
 
 L'idée, c'était de vérifier si un algorithme pouvait, tout seul, repérer ces différences en se basant juste sur quelques données économiques.
 
-Les données qu'on utilise sont créées par des programmes, mais elles sont faites pour ressembler le plus possible à ce qui se passe vraiment dans le commerce informel au Sénégal. Par exemple, les revenus sont en FCFA, on parle de vrais marchés et des types de boutiques qu'on trouve souvent là-bas.
+Les données qu'on utilise sont créées par des programmes, mais elles sont faites pour ressembler le plus possible à ce qui se passe vraiment dans le commerce informel au Sénégal. Par exemple, les revenus sont en FCFA, on parle de vrais marchés et des types de boutiques present sur place.
 
 ## Ce que fait ce projet
 
@@ -38,7 +38,7 @@ Après réflexion, K=4 nous a semblé être l'option la plus judicieuse.
 | Commerces de taille moyenne | ~100 | 900 000 | 40 m² | 5 | 100 |
 | Grands commerçants | ~75 | 2 500 000 | 90 m² | 12 | 200 |
 
-Ces parties collent bien à ce qu'on voit en vrai, et pour moi, c'est un bon signe que tout tient la route.
+Ces parties collent bien à ce qu'on voit en vrai, et pour moi, c'est un bon signe d la part du modele.
 
 ## Comment bien organiser ses fichiers
 ```
@@ -91,10 +91,10 @@ python main.py
 
 ## Quelques mots sur comment l'algorithme fonctionne
 
-En gros, le K-Means commence par mettre des points un peu n'importe où. Après, il regarde chaque donnée et l'attribue au point le plus près. Ensuite, il recalcule la position de ces points, et ça continue comme ça jusqu'à ce que tout soit stable.
+De maniere simple , le K-Means commence par mettre des points un peu n'importe où. Après, il regarde chaque donnée et l'attribue au point le plus près. Ensuite, il recalcule la position de ces points, et ça continue comme ça jusqu'à ce que tout soit stable.
 
 C'est un algorithme simple mais qui marche bien pour ce genre de découpage.
 
 Pour choisir K, j'ai pris la méthode du coude : j'ai tracé l'inertie par rapport à K, et j'ai repéré l'endroit où la courbe devient plus plate.
 
-Ici, tu peux bien voir le coude quand K est à 4.
+Ici, on peux bien voir le coude quand K est à 4.
