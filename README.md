@@ -2,7 +2,7 @@
 
 J'ai réalisé ce projet de mon côté pendant que je faisais ma formation GLSI à l'ESP de Dakar.
 
-Au début, je mE suis pose une simple interrogation et si on pouvait rassembler des commerces sénégalais automatiquement d'après ce qu'ils sont, sans  les avoir classés avant. C'est ce qu'on appelle du clustering non supervisé, et j'ai choisi l'algorithme K-Means pour le faire.
+Au début, je me suis pose une simple interrogation et si on pouvait rassembler des commerces sénégalais automatiquement d'après ce qu'ils sont, sans  les avoir classés avant. C'est ce qu'on appelle du clustering non supervisé, et j'ai choisi l'algorithme K-Means pour le faire.
 
 ## Pourquoi parler de ça ?
 
