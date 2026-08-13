@@ -76,7 +76,7 @@ Les valeurs sont conçues pour représenter différents niveaux d'activité comm
 
 ---
 
-# 🔬 Analyse exploratoire
+#  Analyse exploratoire
 
 Avant d'appliquer le modèle, une analyse exploratoire des données (**EDA — Exploratory Data Analysis**) est réalisée.
 
@@ -207,7 +207,7 @@ visualisation.py
 
 ---
 
-# 📁 Structure du projet
+#  Structure du projet
 
 ```text
 Projet_clustering/
@@ -290,7 +290,7 @@ pip install -r requirements.txt
 
 ---
 
-# ▶️ Exécution
+#  Exécution
 
 Le projet peut être lancé avec :
 
@@ -313,7 +313,7 @@ Le programme enchaîne automatiquement les principales étapes du projet :
 
 ---
 
-# 🔎 Exemple de fonctionnement
+#  Exemple de fonctionnement
 
 Un commerce peut être représenté par :
 
